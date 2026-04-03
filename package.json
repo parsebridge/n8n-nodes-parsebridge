@@ -1,6 +1,6 @@
 {
     "name": "n8n-nodes-parsebridge",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Parse PDFs to clean Markdown with Parsebridge",
     "license": "MIT",
     "homepage": "",
@@ -45,8 +45,5 @@
     },
     "peerDependencies": {
         "n8n-workflow": "*"
-    },
-    "dependencies": {
-        "form-data": "^4.0.5"
     }
 }

@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      form-data:
-        specifier: ^4.0.5
-        version: 4.0.5
       n8n-workflow:
         specifier: '*'
         version: 2.13.1

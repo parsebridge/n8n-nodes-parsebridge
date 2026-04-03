@@ -1,6 +1,6 @@
 {
     "name": "n8n-nodes-parsebridge",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Parse PDFs to clean Markdown with Parsebridge",
     "license": "MIT",
     "homepage": "",
@@ -15,14 +15,14 @@
         "type": "git",
         "url": "https://github.com/parsebridge/n8n-nodes-parsebridge.git"
     },
-   "scripts": {
-		"build": "n8n-node build",
-		"build:watch": "tsc --watch",
-		"dev": "n8n-node dev",
-		"lint": "n8n-node lint",
+    "scripts": {
+        "build": "n8n-node build",
+        "build:watch": "tsc --watch",
+        "dev": "n8n-node dev",
+        "lint": "n8n-node lint",
         "lint:fix": "n8n-node lint --fix",
-		"release": "n8n-node release"
-	},
+        "release": "n8n-node release"
+    },
     "files": [
         "dist"
     ],
@@ -45,5 +45,8 @@
     },
     "peerDependencies": {
         "n8n-workflow": "*"
+    },
+    "dependencies": {
+        "form-data": "^4.0.5"
     }
 }

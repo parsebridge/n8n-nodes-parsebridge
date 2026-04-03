@@ -1,3 +1,4 @@
+import FormData from 'form-data';
 import {
 	NodeConnectionTypes,
 	type IExecuteFunctions,
@@ -109,24 +110,20 @@ export class Parsebridge implements INodeType {
 					const binaryData = this.helpers.assertBinaryData(i, binaryPropertyName);
 					const buffer = await this.helpers.getBinaryDataBuffer(i, binaryPropertyName);
 
+					const formData = new FormData();
+					formData.append('file', buffer, {
+						filename: binaryData.fileName ?? 'document.pdf',
+						contentType: 'application/pdf',
+					});
+
 					responseData = (await this.helpers.httpRequestWithAuthentication.call(
 						this,
 						'parsebridgeApi',
 						{
 							method: 'POST',
 							url: 'https://api.parsebridge.com/v1/parse/document',
-							headers: {
-								'Content-Type': 'multipart/form-data',
-							},
-							body: {
-								file: {
-									value: buffer,
-									options: {
-										filename: binaryData.fileName ?? 'document.pdf',
-										contentType: 'application/pdf',
-									},
-								},
-							},
+							body: formData,
+							headers: formData.getHeaders(),
 						},
 					)) as INodeExecutionData['json'];
 				}

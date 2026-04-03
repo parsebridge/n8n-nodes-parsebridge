@@ -11,7 +11,7 @@ export class ParsebridgeApi implements ICredentialType {
 
 	displayName = 'Parsebridge API';
 
-	icon: Icon = 'file:../icons/github.svg';
+	icon: Icon = 'file:../icons/parsebridge.svg';
 
 	documentationUrl = 'https://parsebridge.com/docs';
 
@@ -39,12 +39,8 @@ export class ParsebridgeApi implements ICredentialType {
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: 'https://api.parsebridge.com',
-			url: '/v1/parse/url',
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ url: 'https://example.com/test.pdf' }),
+			url: '/v1/status',
+			method: 'GET',
 		},
 	};
 }

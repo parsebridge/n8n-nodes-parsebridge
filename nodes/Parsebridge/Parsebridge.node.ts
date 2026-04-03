@@ -10,7 +10,7 @@ export class Parsebridge implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Parsebridge',
 		name: 'parsebridge',
-		icon: 'file:../../icons/github.svg',
+		icon: 'file:../../icons/parsebridge.svg',
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"]}}',

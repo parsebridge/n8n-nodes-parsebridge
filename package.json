@@ -1,6 +1,6 @@
 {
     "name": "n8n-nodes-parsebridge",
-    "version": "0.1.0",
+    "version": "1.0.1",
     "description": "Parse PDFs to clean Markdown with Parsebridge",
     "license": "MIT",
     "homepage": "",
@@ -8,8 +8,8 @@
         "n8n-community-node-package"
     ],
     "author": {
-        "name": "Noah",
-        "email": "hi@noahflk.com"
+        "name": "Parsebridge",
+        "email": "support@parsebridge.com"
     },
     "repository": {
         "type": "git",

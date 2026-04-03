@@ -106,7 +106,7 @@ export class Parsebridge implements INodeType {
 					)) as INodeExecutionData['json'];
 				} else {
 					const binaryPropertyName = this.getNodeParameter('binaryPropertyName', i) as string;
-					this.helpers.assertBinaryData(i, binaryPropertyName);
+					const binaryData = this.helpers.assertBinaryData(i, binaryPropertyName);
 					const buffer = await this.helpers.getBinaryDataBuffer(i, binaryPropertyName);
 
 					responseData = (await this.helpers.httpRequestWithAuthentication.call(
@@ -114,11 +114,19 @@ export class Parsebridge implements INodeType {
 						'parsebridgeApi',
 						{
 							method: 'POST',
-							url: 'https://api.parsebridge.com/v1/parse/file',
+							url: 'https://api.parsebridge.com/v1/parse/document',
 							headers: {
-								'Content-Type': 'application/pdf',
+								'Content-Type': 'multipart/form-data',
 							},
-							body: buffer,
+							body: {
+								file: {
+									value: buffer,
+									options: {
+										filename: binaryData.fileName ?? 'document.pdf',
+										contentType: 'application/pdf',
+									},
+								},
+							},
 						},
 					)) as INodeExecutionData['json'];
 				}
